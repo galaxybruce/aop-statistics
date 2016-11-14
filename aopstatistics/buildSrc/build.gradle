@@ -1,0 +1,41 @@
+
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+configurations {
+    provided
+}
+
+dependencies {
+    repositories {
+        jcenter()
+    }
+    compile gradleApi()
+    compile localGroovy()
+
+    provided 'com.android.tools.build:gradle:2.2.2'
+    compile "org.aspectj:aspectjtools:1.8.7"
+    compile "org.aspectj:aspectjrt:1.8.7"
+}
+
+sourceSets {
+    main.compileClasspath += configurations.provided
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../repo'))
+            pom.project {
+                name 'aop statistics'
+                groupId 'com.kidswant.aop'
+                artifactId 'gradle'
+                version '1.0.0'
+                packaging 'aar'
+            }
+        }
+    }
+}
+
+
+

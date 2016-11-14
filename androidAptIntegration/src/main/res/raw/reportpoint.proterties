@@ -1,0 +1,4 @@
+com.uphyca.gradle.android.aspectj.MyActivity&flagXXX=004:010201:10007
+com.uphyca.gradle.android.aspectj.MyActivityFragment&flagXXX=004:010201:10008
+com.uphyca.gradle.android.aspectj.MyActivity.doActivityKisClick=004::10009
+com.uphyca.gradle.android.aspectj.MyActivity.doActivityParamKisClick=004::10010

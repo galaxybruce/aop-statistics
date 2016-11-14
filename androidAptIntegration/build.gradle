@@ -1,0 +1,51 @@
+//buildscript {
+//    repositories {
+//        jcenter()
+//        maven {
+//            url uri('file:///D:/android-open-project/aop-statistics/aopstatistics/repo')
+//        }
+//    }
+//    dependencies {
+//        classpath 'com.android.tools.build:gradle:2.2.2'
+//        classpath  'com.kidswant.aop:gradle:1.0.0'
+//    }
+//}
+
+apply plugin: 'com.android.application'
+apply plugin: com.kidswant.gradle.android.AndroidAspectJPlugin
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    compileOptions {
+        encoding = "UTF-8"
+    }
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:23.2.0'
+    compile project(':aopstatistics')
+
+}

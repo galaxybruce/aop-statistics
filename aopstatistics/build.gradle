@@ -1,0 +1,35 @@
+//buildscript {
+//    repositories {
+//        jcenter()
+//        maven {
+//            url uri('file:./repo')
+//        }
+//    }
+//    dependencies {
+//        classpath 'com.android.tools.build:gradle:2.2.2'
+//        classpath  'com.kidswant.aop:gradle:1.0.0'
+//    }
+//}
+
+apply plugin: 'com.android.library'
+apply plugin: com.kidswant.gradle.android.AndroidAspectJPlugin
+
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
