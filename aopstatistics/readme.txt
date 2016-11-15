@@ -20,6 +20,8 @@
     include ':aopstatistics'
     project(':aopstatistics').projectDir = new File('../../library/aopstatistics/trunk')
 
+5、配置数据:res/raw/reportpoint.proterties文件中配置，在合适的地方调用reportpoint.proterties方法加载
+
 
 切入点规则：
 1、事件名都以KisListener结尾，如果该事件需要传参，添加String param参数
