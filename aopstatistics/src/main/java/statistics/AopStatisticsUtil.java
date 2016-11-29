@@ -7,7 +7,7 @@ import java.util.Properties;
 /**
  * Created by bruce.zhang 2015/11/12.
  */
-public class ReportDataUtil {
+public class AopStatisticsUtil {
 
     private static Properties mProperties;
 
