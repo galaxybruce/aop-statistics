@@ -27,6 +27,28 @@
 	com.xxx.xxx.MyActivity.doActivityKisClick=004::10009
 	com.xxx.xxx.MyActivity.doActivityParamKisClick=004::10010
 
+6、根据埋点渠道添加不同实例
+private void initAop() {
+        new AopStatistics.Builder()
+                .addAopStatistics(new IAopStatistics() {
+                    @Override
+                    public void reportEvent(String bussinessType, String eventId, String repoParam) {
+                        ReportBaseClient.reportEvent(bussinessType, eventId, repoParam);
+                    }
+
+                    @Override
+                    public void reportPageOnResume(String bussinessType, String pageId, String eventId, String repoParam) {
+                        ReportBaseClient.reportPage(bussinessType, pageId, eventId, repoParam, true);
+                    }
+
+                    @Override
+                    public void reportPageOnPause(String bussinessType, String pageId, String eventId, String repoParam) {
+                        ReportBaseClient.reportPage(bussinessType, pageId, eventId, repoParam, false);
+                    }
+                }).build();
+    }
+
+
 
 切入点规则：
 1、事件名都以KisListener结尾，如果该事件需要传参，添加String param参数
