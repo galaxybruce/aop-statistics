@@ -1,4 +1,4 @@
-package com.kidswant.ss.report.api;
+package statistics;
 
 import android.content.Context;
 

@@ -2,7 +2,7 @@ package com.uphyca.gradle.android.aspectj;
 
 import android.app.Application;
 
-import com.kidswant.ss.report.api.ReportDataUtil;
+import statistics.ReportDataUtil;
 
 
 public class MyApplication extends Application {
