@@ -17,7 +17,7 @@ public aspect Statistics {
     pointcut doOnOpen() : execution(protected * *..BaseActivity.onResume()) && within(BaseActivity);
     pointcut doOnClose() : execution(protected * *..BaseActivity.onPause()) && within(BaseActivity);*/
 
-    /* fragment页面事件 */
+    /* 页面事件 */
     pointcut doOnPage(boolean open) : execution(private void reportPagePoint(boolean)) && args(open);
 
 
