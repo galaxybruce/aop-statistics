@@ -21,7 +21,7 @@
     project(':aopstatistics').projectDir = new File('../../library/aopstatistics/trunk')
 
 5、配置数据:res/raw/reportpoint.proterties文件中配置，在合适的地方调用reportpoint.proterties方法加载
-    调用ReportDataUtil.loadProperties方法加载配置。
+    调用AopStatisticsUtil.loadProperties方法加载配置。
 	com.xxx.xxx.MyActivity&flagXXX=004:010201:10007
 	com.xxx.xxx.MyActivityFragment&flagXXX=004:010201:10008
 	com.xxx.xxx.MyActivity.doActivityKisClick=004::10009

@@ -2,7 +2,7 @@ package com.uphyca.gradle.android.aspectj;
 
 import android.app.Application;
 
-import statistics.AopStatisticsUtil;
+import com.galaxybruce.aop.statistics.AopStatisticsUtil;
 
 
 public class MyApplication extends Application {

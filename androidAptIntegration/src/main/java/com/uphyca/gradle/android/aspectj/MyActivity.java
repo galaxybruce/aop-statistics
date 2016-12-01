@@ -7,21 +7,6 @@ import android.widget.TextView;
 
 public class MyActivity extends BaseActivity implements View.OnClickListener{
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my);
-        TextView.class.cast(findViewById(R.id.greeting)).setText("greeting");
-        TextView.class.cast(findViewById(R.id.greeting)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                doActivityKisListener(v);
-            }
-        });
-
-        TextView.class.cast(findViewById(R.id.greeting1)).setOnClickListener(this);
-    }
-
     private void doActivityKisListener(View v)
     {
         MyActivityFragment.startActivity(MyActivity.this);
@@ -45,5 +30,33 @@ public class MyActivity extends BaseActivity implements View.OnClickListener{
     @Override
     protected void onPause() {
         super.onPause();
+    }
+
+    @Override
+    public void initData(Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_my;
+    }
+
+    @Override
+    public void initView(View view) {
+        TextView.class.cast(findViewById(R.id.greeting)).setText("greeting");
+        TextView.class.cast(findViewById(R.id.greeting)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doActivityKisListener(v);
+            }
+        });
+
+        TextView.class.cast(findViewById(R.id.greeting1)).setOnClickListener(this);
+    }
+
+    @Override
+    public void requestData() {
+
     }
 }

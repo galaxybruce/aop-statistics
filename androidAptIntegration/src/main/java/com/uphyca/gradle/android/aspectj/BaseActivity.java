@@ -1,9 +1,20 @@
 package com.uphyca.gradle.android.aspectj;
 
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity implements IInitUI{
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        initData(savedInstanceState);
+        if(getLayoutId() > 0) setContentView(getLayoutId());
+        initView(null);
+        if(checkLogin()) requestData();
+    }
 
     @Override
     protected void onResume() {
@@ -29,5 +40,14 @@ public class BaseActivity extends AppCompatActivity {
     public String getReportFlag()
     {
         return "1";
+    }
+
+    /**
+     * 判断是否已登录
+     * @return
+     */
+    private boolean checkLogin()
+    {
+        return true;
     }
 }

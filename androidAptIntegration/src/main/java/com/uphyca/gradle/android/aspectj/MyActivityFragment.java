@@ -3,7 +3,7 @@ package com.uphyca.gradle.android.aspectj;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.view.View;
 
 public class MyActivityFragment extends BaseActivity {
 
@@ -11,9 +11,24 @@ public class MyActivityFragment extends BaseActivity {
         Intent intent = new Intent(context, MyActivityFragment.class);
         context.startActivity(intent);
     }
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment);
+    public void initData(Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_fragment;
+    }
+
+    @Override
+    public void initView(View view) {
+
+    }
+
+    @Override
+    public void requestData() {
+
     }
 }

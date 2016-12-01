@@ -1,4 +1,4 @@
-package com.kidswant.aop.statistics;
+package com.galaxybruce.aop.statistics;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.JoinPoint;
@@ -60,15 +60,15 @@ public aspect Statistics {
     /** 上报点击事件或者流程事件 **/
     private void reportEvent(String name, String param)
     {
-        /** android.util.Log.i("aaaaaaaaaaaa", "reportEvent.name: " + name+ "-"+ param); **/
+        android.util.Log.i("aaaaaaaaaaaa", "reportEvent.name: " + name+ "-"+ param);
 
-        String value = com.kidswant.aop.statistics.AopStatisticsUtil.getPropertyValue(name);
+        String value = com.galaxybruce.aop.statistics.AopStatisticsUtil.getPropertyValue(name);
         if(value == null || "".equals(value)) return;
 
         String[] values = value.split(":");
         if(values.length < 3) return;
 
-        com.kidswant.aop.statistics.AopStatistics.reportEvent(values[0], values[2], param);
+        com.galaxybruce.aop.statistics.AopStatistics.reportEvent(values[0], values[2], param);
     }
 
     /** 上报页面事件 **/
@@ -84,20 +84,20 @@ public aspect Statistics {
             typeName = typeName + "&" + flag;
         }
 
-       /** android.util.Log.i("aaaaaaaaaaaa", "reportPage.name: " + typeName+ "-"+ param + "-" + open); **/
+       android.util.Log.i("aaaaaaaaaaaa", "reportPage.name: " + typeName+ "-"+ param + "-" + open);
 
-        String value = com.kidswant.aop.statistics.AopStatisticsUtil.getPropertyValue(typeName);
+        String value = com.galaxybruce.aop.statistics.AopStatisticsUtil.getPropertyValue(typeName);
         if(value == null || "".equals(value)) return;
         String[] values = value.split(":");
         if(values.length < 3) return;
 
         if(open)
         {
-            com.kidswant.aop.statistics.AopStatistics.reportPageOnResume(values[0], values[1], values[2], (String)param);
+            com.galaxybruce.aop.statistics.AopStatistics.reportPageOnResume(values[0], values[1], values[2], (String)param);
         }
         else
         {
-            com.kidswant.aop.statistics.AopStatistics.reportPageOnPause(values[0], values[1], values[2], (String)param);
+            com.galaxybruce.aop.statistics.AopStatistics.reportPageOnPause(values[0], values[1], values[2], (String)param);
         }
     }
 

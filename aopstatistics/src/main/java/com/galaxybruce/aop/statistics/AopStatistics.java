@@ -1,4 +1,4 @@
-package statistics;
+package com.galaxybruce.aop.statistics;
 
 import java.util.ArrayList;
 import java.util.List;

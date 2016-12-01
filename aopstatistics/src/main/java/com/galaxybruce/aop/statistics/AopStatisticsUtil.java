@@ -1,4 +1,4 @@
-package statistics;
+package com.galaxybruce.aop.statistics;
 
 import android.content.Context;
 

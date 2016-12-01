@@ -2,18 +2,53 @@ package com.uphyca.gradle.android.aspectj;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
 
 
-public class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment implements IInitUI{
+
 
     protected Context mContext = null;
+
+    protected boolean mViewInit;			//view是否创建
+    protected boolean mFirstLoad = true;	//数据第一次加载过
+
     protected boolean isOnResume = false;
 
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
         mContext = getActivity();
+        View rootView = getView();
+        if(rootView == null)
+        {
+            rootView = inflater.inflate(getLayoutId(), null);
+        }
+        else
+        {
+            final ViewParent parent = rootView.getParent();
+            if(parent instanceof ViewGroup)
+            {
+                ((ViewGroup) parent).removeView(rootView);
+            }
+        }
+
+        return rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initData(savedInstanceState);
+        initView(view);
+        mViewInit = true;
+        requestData();
     }
 
       @Override
@@ -62,6 +97,47 @@ public class BaseFragment extends Fragment {
     public String getReportFlag()
     {
         return "flagXXX";
+    }
+
+    @Override
+    public void onDestroy()
+    {
+        mViewInit = false;
+        mFirstLoad = false;
+        super.onDestroy();
+    }
+
+    /*********************** 重新登录后的行为 start ************************/
+    private Runnable mLoginTask;
+    protected void setLoginTask(Runnable loginTask)
+    {
+        mLoginTask = loginTask;
+    }
+
+    private void doLoginTask()
+    {
+        if(mLoginTask != null)
+        {
+            Runnable runnable = mLoginTask;
+            mLoginTask = null;
+            runOnUiThread(runnable);
+        }
+    }
+    /*********************** 重新登录后的行为 end ************************/
+
+    protected void runOnUiThread(Runnable action) {
+        if(getActivity() != null)
+        {
+            getActivity().runOnUiThread(action);
+        }
+    }
+
+    public void runOnUiThreadDelay(Runnable action, long delay)
+    {
+        if(getActivity() != null)
+        {
+            getActivity().getWindow().getDecorView().postDelayed(action, delay);
+        }
     }
 
 }
