@@ -62,7 +62,7 @@ public aspect Statistics {
     {
         android.util.Log.i("aaaaaaaaaaaa", "reportEvent.name: " + name+ "-"+ param);
 
-        String value = com.galaxybruce.aop.statistics.AopStatisticsUtil.getPropertyValue(name);
+        String value = com.galaxybruce.aop.statistics.AopStatistics.getPropertyValue(name);
         if(value == null || "".equals(value)) return;
 
         String[] values = value.split(":");
@@ -86,7 +86,7 @@ public aspect Statistics {
 
        android.util.Log.i("aaaaaaaaaaaa", "reportPage.name: " + typeName+ "-"+ param + "-" + open);
 
-        String value = com.galaxybruce.aop.statistics.AopStatisticsUtil.getPropertyValue(typeName);
+        String value = com.galaxybruce.aop.statistics.AopStatistics.getPropertyValue(typeName);
         if(value == null || "".equals(value)) return;
         String[] values = value.split(":");
         if(values.length < 3) return;
