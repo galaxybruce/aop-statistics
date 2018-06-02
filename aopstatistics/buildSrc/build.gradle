@@ -25,13 +25,34 @@ sourceSets {
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: uri('../repo'))
+            // 方案一：本地仓库
+//            repository(url: uri('../repo'))
+//            pom.project {
+//                name 'aop statistics'
+//                groupId 'com.xxx.aop'
+//                artifactId 'gradle'
+//                version '1.0.0'
+//                packaging 'aar'
+//            }
+
+            // 方案二：maven仓库
+            // ./gradlew -p /Users/bruce/work/kidswant/sourcecode/Projects_Android/library/aopstatistics/trunk/buildSrc clean build uploadArchives
+            repository(url: 'http://maven.xxx.com:8081/nexus/content/repositories/releases') {
+                authentication(userName: 'deployment', password: '123456')
+            }
+
+            pom.groupId = 'com.xxx'
+            pom.artifactId = 'gradle-plugin-aspectj'
+            pom.version = '1.0.1'
+            pom.packaging = 'aar'
+
             pom.project {
-                name 'aop statistics'
-                groupId 'com.kidswant.aop'
-                artifactId 'gradle'
-                version '1.0.0'
-                packaging 'aar'
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
             }
         }
     }
