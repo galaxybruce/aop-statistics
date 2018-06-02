@@ -36,7 +36,7 @@ uploadArchives {
 //            }
 
             // 方案二：maven仓库
-            // ./gradlew -p /Users/bruce/work/kidswant/sourcecode/Projects_Android/library/aopstatistics/trunk/buildSrc clean build uploadArchives
+            // ./gradlew -p /Users/bruce/work/sourcecode/Projects_Android/library/aopstatistics/trunk/buildSrc clean build uploadArchives
             repository(url: 'http://maven.xxx.com:8081/nexus/content/repositories/releases') {
                 authentication(userName: 'deployment', password: '123456')
             }
