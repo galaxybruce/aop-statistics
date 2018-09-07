@@ -1,5 +1,5 @@
 // This plugin is based on https://github.com/JakeWharton/hugo
-package com.kidswant.gradle.android
+package com.galaxybruce.gradle.android
 
 import com.android.build.gradle.api.BaseVariant
 import com.android.builder.model.BaseConfig

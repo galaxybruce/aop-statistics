@@ -1,4 +1,4 @@
-package com.kidswant.gradle.android
+package com.galaxybruce.gradle.android
 
 import org.aspectj.bridge.IMessage
 import org.aspectj.bridge.MessageHandler

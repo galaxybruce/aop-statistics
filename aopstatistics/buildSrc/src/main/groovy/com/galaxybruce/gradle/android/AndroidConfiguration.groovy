@@ -1,4 +1,4 @@
-package com.kidswant.gradle.android
+package com.galaxybruce.gradle.android
 
 import com.android.build.gradle.AppPlugin
 import com.android.build.gradle.BasePlugin
@@ -24,7 +24,7 @@ class AndroidConfiguration {
         this.hasLibPlugin = project.plugins.hasPlugin(LibraryPlugin)
 
         if (!hasAppPlugin && !hasLibPlugin) {
-            throw new GradleException("com.kidswant.android-aspectj-plugin: The 'com.android.application' or 'com.android.library' plugin is required.")
+            throw new GradleException("com.galaxybruce.android-aspectj-plugin: The 'com.android.application' or 'com.android.library' plugin is required.")
         }
         this.plugin = project.plugins.getPlugin(hasAppPlugin ? AppPlugin : LibraryPlugin)
     }

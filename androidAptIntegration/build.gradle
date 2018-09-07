@@ -7,12 +7,12 @@
 //    }
 //    dependencies {
 //        classpath 'com.android.tools.build:gradle:2.2.2'
-//        classpath  'com.kidswant.aop:gradle:1.0.0'
+//        classpath  'com.galaxybruce.aop:gradle:1.0.0'
 //    }
 //}
 
 apply plugin: 'com.android.application'
-apply plugin: com.kidswant.gradle.android.AndroidAspectJPlugin
+apply plugin: com.galaxybruce.gradle.android.AndroidAspectJPlugin
 
 android {
     compileSdkVersion 23

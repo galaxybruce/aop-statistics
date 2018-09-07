@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-  <groupId>com.kidswant.aop</groupId>
+  <groupId>com.galaxybruce.aop</groupId>
   <artifactId>gradle</artifactId>
   <versioning>
     <release>1.0.0</release>
