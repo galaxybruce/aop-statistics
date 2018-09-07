@@ -12,11 +12,11 @@
         }
 
         dependencies {
-            classpath  'com.kidswant.aop:gradle:1.0.0'
+            classpath  'com.galaxybruce.aop:gradle:1.0.0'
         }
     }
 3、在需要用到切面编程的module中，是需要切面的每个module，必须引入这个插件以及java代码；
-    apply plugin: com.kidswant.gradle.android.AndroidAspectJPlugin
+    apply plugin: com.galaxybruce.gradle.android.AndroidAspectJPlugin
     compile project(':aopstatistics')
      初始化配置的module，如app中如果没用到切面，不需要引入插件，只需要引入java代码部分
      compile project(':aopstatistics')
